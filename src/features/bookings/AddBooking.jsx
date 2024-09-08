@@ -11,8 +11,7 @@ function AddBooking() {
       <Button onClick={() => setIsOpenForm((show) => !show)}>
         Add Booking
       </Button>
-      <AddGuest />
-      {isOpenForm && <BookingForm />}
+      {isOpenForm && <AddGuest />}
     </div>
   );
 }
