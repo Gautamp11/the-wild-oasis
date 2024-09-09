@@ -9,7 +9,7 @@ import { useLogin } from "./useLogin";
 
 function LoginForm() {
   const [email, setEmail] = useState("gautam1564p1@gmail.com");
-  const [password, setPassword] = useState("Gautam@p1");
+  const [password, setPassword] = useState("Poiuy@p1");
 
   const { login, isLoading } = useLogin();
 
@@ -47,7 +47,7 @@ function LoginForm() {
           autoComplete="current-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          disabled={isLoading}
+          disabled
         />
       </FormRowVertical>
       <FormRowVertical>

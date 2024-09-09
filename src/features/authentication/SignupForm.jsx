@@ -84,7 +84,7 @@ function SignupForm() {
         <Button color="secondary" type="reset" disabled={isLoading}>
           Cancel
         </Button>
-        <Button>Create new user</Button>
+        <Button disabled>Create new user</Button>
       </FormRow>
     </Form>
   );
