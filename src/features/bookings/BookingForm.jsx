@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Form from "../../ui/Form";
 import Input from "../../ui/Input";
@@ -8,19 +8,18 @@ import FormRow from "../../ui/FormRow";
 import Checkbox from "../../ui/Checkbox";
 import styled from "styled-components";
 import { useCreateBooking } from "./useCreateBooking";
-import { useCabins } from "../cabins/useCabins";
 import { useNavigate } from "react-router-dom";
 
-const fakeData = {
-  startDate: "2024-09-11T00:00:00",
-  endDate: "2024-09-19T00:00:00",
-  numNights: 8,
-  numGuests: 5,
-  status: "unconfirmed",
-  hasBreakfast: false,
-  isPaid: false,
-  observations: "Test",
-};
+// const fakeData = {
+//   startDate: "2024-09-11T00:00:00",
+//   endDate: "2024-09-19T00:00:00",
+//   numNights: 8,
+//   numGuests: 5,
+//   status: "unconfirmed",
+//   hasBreakfast: false,
+//   isPaid: false,
+//   observations: "Test",
+// };
 
 const StyledSelect = styled.select`
   font-size: 1.4rem;
@@ -36,7 +35,7 @@ function BookingForm({ guestDetails, cabins, breakfastPrice }) {
   let guestId = guestDetails?.id;
   const navigate = useNavigate();
 
-  const { mutate, isLoading } = useCreateBooking();
+  const { mutate } = useCreateBooking();
   const [selectedCabinId, setSelectedCabinId] = useState("");
   const [cabinPrice, setCabinPrice] = useState(0);
 
@@ -47,7 +46,7 @@ function BookingForm({ guestDetails, cabins, breakfastPrice }) {
     watch,
     setValue,
     reset,
-  } = useForm({ defaultValues: fakeData });
+  } = useForm({});
 
   const hasBreakfast = watch("hasBreakfast");
   const numGuests = watch("numGuests");

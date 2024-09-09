@@ -10,13 +10,13 @@ import { useCabins } from "../cabins/useCabins";
 import { useSettings } from "../settings/useSettings";
 
 function AddGuestForm() {
-  const fakeGuest = {
-    fullName: "Gautam",
-    email: "gautam1564p1@gmail.com",
-    nationality: "Indian",
-    nationalID: "539252525",
-    countryFlag: "",
-  };
+  //   const fakeGuest = {
+  //     fullName: "Gautam",
+  //     email: "gautam1564p1@gmail.com",
+  //     nationality: "Indian",
+  //     nationalID: "539252525",
+  //     countryFlag: "",
+  //   };
   const { mutate, isLoading } = useCreateGuest();
   const [openBookingForm, setOpenBookingForm] = useState(false);
   const [guestDetails, setGuestDetails] = useState({});
@@ -28,7 +28,7 @@ function AddGuestForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ defaultValues: fakeGuest });
+  } = useForm({});
 
   const onSubmit = (data) => {
     // Trigger the mutation with the form data
