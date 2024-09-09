@@ -23,13 +23,17 @@ const Avatar = styled.img`
 
 function UserAvatar() {
   const { user } = useUser();
-  // console.log(user.user_metadata);
+
   let fullName = "";
   let avatar = "";
 
-  if (!Object.keys(user.user_metadata).length === 0) {
-    fullName = user.user_metadata;
-    avatar = user.user_metadata;
+  if (
+    user &&
+    user.user_metadata &&
+    Object.keys(user.user_metadata).length > 0
+  ) {
+    fullName = user.user_metadata.full_name || "";
+    avatar = user.user_metadata.avatar_url || "";
   }
 
   return (
@@ -38,7 +42,7 @@ function UserAvatar() {
         src={avatar || "default-user.jpg"}
         alt={`Avatar of ${fullName}`}
       />
-      <span>{fullName.length > 0 ? fullName : user.email}</span>
+      <span>{fullName.length > 0 ? fullName : user?.email}</span>
     </StyledUserAvatar>
   );
 }
